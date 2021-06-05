@@ -1,4 +1,3 @@
-
 /* menu show y hidden */
 const navMenu = document.getElementById('nav-menu'),
     navToggle = document.getElementById('nav-toggle'),
@@ -96,3 +95,51 @@ var swiper = new Swiper(".mySwiper", {
     // mousewheel: true,
     // keyboard: true,
   });
+
+/*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
+const sections = document.querySelectorAll('section[id]')
+
+function scrollActive(){
+    const scrollY = window.pageYOffset
+
+    sections.forEach(current =>{
+        const sectionHeight = current.offsetHeight
+        const sectionTop = current.offsetTop - 50;
+        sectionId = current.getAttribute('id')
+
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+        }else{
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+        }
+    })
+}
+window.addEventListener('scroll', scrollActive)
+
+/*==================== SCROLL UP ====================*/
+const scrollup = document.getElementById('scroll-up');
+function scrollUp(){
+    if(window.scrollY > 200){
+        scrollup.classList.add('scrollup-visible');
+    }else{
+        scrollup.classList.remove('scrollup-visible');
+    }
+}
+window.addEventListener('scroll', scrollUp)
+
+/*==================== Dark mode ====================*/
+var changeTheme = document.querySelectorAll('.change-theme');
+const buttonDark = document.getElementById('button-dark')
+const buttonLight = document.getElementById('button-light')
+
+buttonDark.addEventListener('click', function(){
+    this.classList.remove('visible');
+    document.body.classList.remove('dark-theme');
+    buttonLight.classList.toggle('visible');
+})
+buttonLight.addEventListener('click', function(){
+    this.classList.remove('visible');
+    document.body.classList.add('dark-theme');
+    buttonDark.classList.toggle('visible');
+})
+
