@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>test</title>
+</head>
+<body>
+
+
+    <script>
+        
+
+        var parkhanseong = {
+            name: '박한성',
+            cook: function(text){
+                // 여기서 text라는 변수로 전달해준 값을 받아요
+                console.log(`${text} 김치찌개를 좋아해요`);
+
+                // undefined라고 뜨는건 return에 아무 값도 주지않으면 undefined가 떠요
+                // 그래서 return에다가 값을 주면 넘겨준 값이 반환이 되죠
+                // return/console.log/매개변수를 처음부터 다시 하나씩 보세요~
+                // 꼭 이해햐셔야되요 이건
+                var str = `${text} 김치찌개를 좋아해요`;
+                return str;
+
+            }
+        }
+        // 괄호 안에 넘겨주는걸 매개변수라고 하죠
+        console.log(parkhanseong['cook']("저는"));
+
+    </script>
+
+</body>
+</html>
